@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewMedium-Obl.eot');
+  src: local('Futura New Medium Obl'), local('FuturaNewMedium-Obl'),
+      url('./FuturaNew/FuturaNewMedium-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewMedium-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewMedium-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewMedium-Obl.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura New Demi';
+  src: url('./FuturaNew/FuturaNewDemi-Obl.eot');
+  src: local('Futura New Demi Obl'), local('FuturaNewDemi-Obl'),
+      url('./FuturaNew/FuturaNewDemi-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewDemi-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewDemi-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewDemi-Obl.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewMedium-Reg.eot');
+  src: local('Futura New Medium Reg'), local('FuturaNewMedium-Reg'),
+      url('./FuturaNew/FuturaNewMedium-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewMedium-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewMedium-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewMedium-Reg.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewHeavy-Reg.eot');
+  src: local('Futura New Heavy Reg'), local('FuturaNewHeavy-Reg'),
+      url('./FuturaNew/FuturaNewHeavy-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewHeavy-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewHeavy-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewHeavy-Reg.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewLight-Obl.eot');
+  src: local('Futura New Light Obl'), local('FuturaNewLight-Obl'),
+      url('./FuturaNew/FuturaNewLight-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewLight-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewLight-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewLight-Obl.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura New Book';
+  src: url('./FuturaNew/FuturaNewBook-Obl.eot');
+  src: local('Futura New Book Obl'), local('FuturaNewBook-Obl'),
+      url('./FuturaNew/FuturaNewBook-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewBook-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewBook-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewBook-Obl.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewExtraBold-Obl.eot');
+  src: local('Futura New ExtraBold Obl'), local('FuturaNewExtraBold-Obl'),
+      url('./FuturaNew/FuturaNewExtraBold-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewExtraBold-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewExtraBold-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewExtraBold-Obl.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura New Book';
+  src: url('./FuturaNew/FuturaNewBook-Reg.eot');
+  src: local('Futura New Book Reg'), local('FuturaNewBook-Reg'),
+      url('./FuturaNew/FuturaNewBook-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewBook-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewBook-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewBook-Reg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewBold-Obl.eot');
+  src: local('Futura New Bold Obl'), local('FuturaNewBold-Obl'),
+      url('./FuturaNew/FuturaNewBold-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewBold-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewBold-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewBold-Obl.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewExtraBold-Reg.eot');
+  src: local('Futura New ExtraBold Reg'), local('FuturaNewExtraBold-Reg'),
+      url('./FuturaNew/FuturaNewExtraBold-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewExtraBold-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewExtraBold-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewExtraBold-Reg.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: url('./FuturaNew/FuturaNewLight-Reg.eot');
+  src: local('Futura New Light Reg'), local('FuturaNewLight-Reg'),
+      url('./FuturaNew/FuturaNewLight-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewLight-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewLight-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewLight-Reg.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New Demi';
+  src: local('Futura New Demi Reg'), local('FuturaNewDemi-Reg'),
+      url('./FuturaNew/FuturaNewDemi-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewDemi-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewDemi-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewDemi-Reg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: local('Futura New Bold Reg'), local('FuturaNewBold-Reg'),
+      url('./FuturaNew/FuturaNewBold-Reg.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewBold-Reg.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewBold-Reg.woff') format('woff'),
+      url('./FuturaNew/FuturaNewBold-Reg.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura New';
+  src: local('Futura New Heavy Obl'), local('FuturaNewHeavy-Obl'),
+      url('./FuturaNew/FuturaNewHeavy-Obl.eot?#iefix') format('embedded-opentype'),
+      url('./FuturaNew/FuturaNewHeavy-Obl.woff2') format('woff2'),
+      url('./FuturaNew/FuturaNewHeavy-Obl.woff') format('woff'),
+      url('./FuturaNew/FuturaNewHeavy-Obl.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('./NotoSerif/NotoSerif-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('./NotoSerif/NotoSerif-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('./NotoSerif/NotoSerif-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('./NotoSerif/NotoSerif-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
