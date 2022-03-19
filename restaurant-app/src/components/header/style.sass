@@ -1,4 +1,5 @@
 @import '../../variables'
+@import '../../mixins'
 
 .header
   padding-top: 31px 
@@ -6,6 +7,9 @@
   &__container
     display: flex
     justify-content: space-between
+    +_768
+      flex-direction: column
+      align-items: center
   
   &__logo
     width: 13.12em
@@ -14,8 +18,13 @@
   &__menu
     list-style-type: none
     display: flex
+    align-items: center
     column-gap: 25px
+    +_480
+      flex-direction: column
+      row-gap: 15px
   
   &__menu-item
+    display: block
     text-decoration: none
     color: $base-color

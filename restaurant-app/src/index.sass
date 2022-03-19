@@ -1,12 +1,22 @@
+@import "mixins"
+
+* 
+  box-sizing: border-box
+
+ul, ol, h1, h2, h3, h4, h5
+  padding: 0
+  
 body 
   margin: 0
   font-family: 'Futura New Demi', sans-serif
   font-size: 16px
 
 .container
-  max-width: 1200px
+  max-width: 1150px
   width: 100%
   margin: auto
+  +_1170
+    padding: 0 20px
 
 .visually-hidden 
   position: absolute;
