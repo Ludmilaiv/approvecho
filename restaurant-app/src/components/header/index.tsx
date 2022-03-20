@@ -12,7 +12,7 @@ export function Header({ withBanner = false } : Props) {
         <div className='header__logo'><img src="logo.png" alt="logo" /></div>
         <nav>
           <ul className='header__menu'>
-            <li className='header__menu-item'>
+            <li>
               <a href='#' className='header__menu-item'>Меню</a>
             </li>
             <li>

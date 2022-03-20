@@ -1,0 +1,64 @@
+@import '../../../../variables'
+@import '../../../../mixins'
+
+.banner
+  min-height: 40rem
+  padding-top: 2.8rem
+  background-image: url('./baner-bg.png')
+  background-size: 80% auto 
+  background-repeat: no-repeat
+  background-position-x: 90%
+  background-position-y: -5vh
+  +_1170
+    background-size: 60% auto
+    background-position-y: -2vh
+  +_979
+    background-size: 55% auto
+    background-position-y: 4vh
+  +_768
+    background-size: 50% auto 
+  +_600
+    background: none
+
+  &__title
+    font-family: 'Noto Serif', serif
+    font-weight: 400
+    font-size: 3.325em
+    text-transform: uppercase
+    line-height: 1.3
+    margin-bottom: 6.91rem
+    +_979
+      font-size: 2.5em
+    +_600
+      text-align: center
+      margin-bottom: 2rem
+
+  &__btn
+    margin-top: 17px
+    font-size: 1.35em
+    +_600
+      margin-left: auto
+      margin-right: auto
+
+  &__btn-img
+    margin-left: 5px
+    width: 2.5em
+
+  &__contacts
+    display: flex
+    list-style-type: none
+    margin: 2.93rem 0
+    font-size: 1.18em
+    column-gap: 60px 
+    +_600
+      justify-content: center
+      flex-wrap: wrap
+
+  &__contacts-item
+    display: flex
+    align-items: center
+
+  &__contacts-img
+    width: 1em
+    margin-right: 5px
+

@@ -1,15 +1,32 @@
 @import "mixins"
+@import "variables"
 
 * 
   box-sizing: border-box
 
-ul, ol, h1, h2, h3, h4, h5
+ul,ol,h1,h2,h3,h4,h5
   padding: 0
+  margin: 0
+  font-size: inherit
+
+html
+  font-size: 18px
+  +_1170
+    font-size: 17px
+  +_979
+    font-size: 16px
+  +_768
+    font-size: 15px 
+  +_600
+    font-size: 14px 
+  +_480
+    font-size: 13px
+  +_350
+    font-size: 12px
   
 body 
   margin: 0
   font-family: 'Futura New Demi', sans-serif
-  font-size: 16px
 
 .container
   max-width: 1150px
