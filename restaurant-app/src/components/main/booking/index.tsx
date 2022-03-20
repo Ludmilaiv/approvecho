@@ -6,7 +6,7 @@ type Props = {classMod?: string};
 
 export function Booking({ classMod = 'medium' } : Props) {
   return (
-    <section className={classNames('booking', 'booking_' + classMod)}>
+    <section id={classMod === 'medium' ? 'booking' : ''} className={classNames('booking', 'booking_' + classMod)}>
       <h2 className="visually-hidden">Забронировать стол</h2>
       <form className="booking__form" action="#">
         <fieldset>

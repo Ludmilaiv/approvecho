@@ -6,20 +6,20 @@ type Props = {withBanner: boolean};
 
 export function Header({ withBanner = false } : Props) {
   return (
-    <header className='header'>
+    <header id="top" className='header'>
       <h1 className='visually-hidden'>Аппровечо</h1>
       <div className='container header__container'>
         <div className='header__logo'><img src="logo.png" alt="logo" /></div>
         <nav>
           <ul className='header__menu'>
             <li>
-              <a href='#' className='header__menu-item'>Меню</a>
+              <a href='#foodMenu' className='header__menu-item'>Меню</a>
             </li>
             <li>
-              <a href='#' className='header__menu-item'>Контакты</a>
+              <a href='#contacts' className='header__menu-item'>Контакты</a>
             </li>
             <li>
-              <a href='#' className='header__menu-item header__menu-item ui-button ui-button-light'>Забронировать</a>
+              <a href='#booking' className='header__menu-item header__menu-item ui-button ui-button-light'>Забронировать</a>
             </li>
           </ul>
         </nav>

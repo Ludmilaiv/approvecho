@@ -24,7 +24,7 @@ export function FoodMenu() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   return (
-    <section className='food-menu container'>
+    <section className='food-menu container' id="foodMenu">
       <div className='food-menu__categories'>
         <h2 className='food-menu__title'>Меню</h2>
         <ul className='food-menu__categories-list'>

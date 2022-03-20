@@ -8,16 +8,16 @@ export function Footer() {
         <nav className='footer__menu-wrp'>
           <ul className='footer__menu'>
             <li>
-              <a href='#' className='footer__menu-item'>Главная</a>
+              <a href='#top' className='footer__menu-item'>Главная</a>
             </li>
             <li>
-              <a href='#' className='footer__menu-item'>Меню</a>
+              <a href='#foodMenu' className='footer__menu-item'>Меню</a>
             </li>
             <li>
-              <a href='#' className='footer__menu-item'>Контакты</a>
+              <a href='#contacts' className='footer__menu-item'>Контакты</a>
             </li>
             <li>
-              <a href='#' className='footer__menu-item'>Забронировать</a>
+              <a href='#booking' className='footer__menu-item'>Забронировать</a>
             </li>
           </ul>
         </nav>
@@ -46,7 +46,7 @@ export function Footer() {
           </a>
         </li>
         <li>
-          <a href='#' className='footer__social-item'>
+          <a href='https://www.instagram.com/approvecho_/' target='_blank' rel="noreferrer" className='footer__social-item'>
             <img src='img/instagram.svg' alt='instagram' />
           </a>
         </li>
