@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import './style.sass';
 import { Methods } from '../../../methods';
 import { Category, FoodMenuItem } from '../../../types';
+import { Loader } from '../../loader';
 
 // const categories = [
 //   {id: 1, title: 'Салаты'},
@@ -64,7 +65,7 @@ export function FoodMenu() {
             <li key={category.id} className={classNames('food-menu__categories-item', activeCategory.id === category.id && 'food-menu__categories-item_active')} onClick={() => setActiveCategory(category)}>
               {category.title}
             </li>
-          ): 'loading...'}
+          ): <Loader/>}
 
         </ul>
       </div>
@@ -89,7 +90,7 @@ export function FoodMenu() {
                 <span className='food-menu__item-price'>100 ₽</span>
               </div>
             </li>
-          ) : 'loading...'}
+          ) : <Loader/>}
         </ul>
       </div>
       
