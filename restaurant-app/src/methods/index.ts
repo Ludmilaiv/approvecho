@@ -14,11 +14,15 @@ export class Methods {
           resolve(false);
         });
     });
-    
   }
 
-  static async getCategories(): Promise<Category[]> {
+  static async getApi(): Promise<string> {
     const api = await this.isApiUrlAvailable(data.apiUrl).then() ? data.apiUrl : data.apiUrlForDev;
+    return new Promise(resolve => resolve(api));
+  }
+
+  static async getCategories(api: string): Promise<Category[]> {
+    
     if (!await this.isApiUrlAvailable(api).then()) {
       console.error('Server is not available!');
       return new Promise(resolve => resolve([]));
@@ -35,8 +39,7 @@ export class Methods {
     });
   }
 
-  static async getMenu(): Promise<FoodMenuItem[]> {
-    const api = await this.isApiUrlAvailable(data.apiUrl).then() ? data.apiUrl : data.apiUrlForDev;
+  static async getMenu(api: string): Promise<FoodMenuItem[]> {
     if (!await this.isApiUrlAvailable(api).then()) {
       console.error('Server is not available!');
       return new Promise(resolve => resolve([]));

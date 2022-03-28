@@ -33,15 +33,23 @@ export function FoodMenu() {
   const [menu, setMenu] = useState<FoodMenuItem[]>();
   const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [menuLoading, setMenuLoading] = useState(true);
+  const [api, setApi] = useState<string>();
+
+  const getApi = async() => {
+    const api = await Methods.getApi().then();
+    setApi(api);
+  };
 
   const getCategories = async() => {
-    const categories = await Methods.getCategories().then();
+    if (!api) return;
+    const categories = await Methods.getCategories(api).then();
     setCategories(categories);
     setCategoriesLoading(false);
   };
   
   const getMenu = async() => {
-    const menu = await Methods.getMenu().then();
+    if (!api) return;
+    const menu = await Methods.getMenu(api).then();
     setMenu(menu);
     setMenuLoading(false);
   };
@@ -51,9 +59,13 @@ export function FoodMenu() {
   }, [categories]);
 
   useEffect(() => {
+    getApi();
+  }, []);
+
+  useEffect(() => {
     getCategories();
     getMenu();
-  }, []);
+  }, [api]);
 
   return (
     <section className='food-menu container' id="foodMenu">
@@ -78,7 +90,7 @@ export function FoodMenu() {
             item.category_id === activeCategory.id && <li key={item.id} className='food-menu__item'>
               <div>
                 <div className='food-menu__item-img-box'>
-                  <img className='food-menu__item-img' src={`menu_img/${item.img}`} alt="photo" />
+                  <img className='food-menu__item-img' src={`${api}img/menu/${item.img}`} alt="photo" />
                 </div>
                 <h4 className='food-menu__item-title'>{item.title}</h4>
                 <p className='food-menu__item-desc'>
