@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-require './DB_conn/db_conn.php';
+require './db_conn/db_conn.php';
 $url = $_SERVER['REQUEST_URI'];
 
 if (!isset($_GET['func'])) {
