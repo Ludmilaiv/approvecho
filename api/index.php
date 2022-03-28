@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 require './DB_conn/db_conn.php';
 $url = $_SERVER['REQUEST_URI'];
 
