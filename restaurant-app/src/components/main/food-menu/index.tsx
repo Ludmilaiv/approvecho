@@ -20,6 +20,11 @@ const menu = [
   {id: 6, category: 1, title: 'Греческий', img: 'grecheskiy.jpg', desc: '(Филе куриное, черри, бруснично-грушевый соус, сладкий перец, Mozzarella)', massa: 324, unit: 'гр', price: 100},
 ];
 
+// const getCategories = () => {
+
+// }
+
+
 export function FoodMenu() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 

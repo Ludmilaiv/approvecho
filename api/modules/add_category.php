@@ -1,0 +1,23 @@
+<?php
+$json = file_get_contents('php://input');
+$_POST = json_decode($json, true);
+
+if (!isset($_POST['title'])) {
+  echo json_encode(['err' => ['code'=>1, 'description'=>'Incorrect data: title is not defined']]);
+  exit;
+}
+
+$order = 0;
+
+$categories = R::findAll('categories', 'ORDER BY "order"');
+if (isset($categories)) {
+  $categories = array_values($categories);
+  $order = end($categories)->order + 1;
+}
+
+$category = R::dispense('categories');
+$category->title = $_POST['title'];
+$category->order = $order;
+R::store($category);
+
+echo json_encode($category);
