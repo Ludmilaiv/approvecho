@@ -1,13 +1,14 @@
 import React from 'react';
 import './style.sass';
 import { Banner } from './components/banner';
+import {info} from '../../data';
 
 type Props = {withBanner: boolean};
 
 export function Header({ withBanner = false } : Props) {
   return (
     <header id="top" className='header'>
-      <h1 className='visually-hidden'>Аппровечо</h1>
+      <h1 className='visually-hidden'>{info.name}</h1>
       <div className='container header__container'>
         <div className='header__logo'><img src="logo.png" alt="logo" /></div>
         <nav>

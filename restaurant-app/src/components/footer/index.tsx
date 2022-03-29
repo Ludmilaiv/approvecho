@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.sass';
+import { info } from '../../data';
 
 export function Footer() {
   return (
@@ -26,27 +27,22 @@ export function Footer() {
           <ul className='footer__contacts-list'>
             <li className='footer__contacts-item'>
               <img className='footer__contacts-item-img' src='img/location-light.svg' />
-              <span className='footer__contacts-item-lbl'>ул. Карла Маркса, 78</span>
+              <span className='footer__contacts-item-lbl'>{info.address}</span>
             </li>
             <li className='footer__contacts-item'>
               <img className='footer__contacts-item-img' src='img/letter-light.svg' />
-              <span className='footer__contacts-item-lbl'>info@gmail.com</span>
+              <span className='footer__contacts-item-lbl'>{info.email}</span>
             </li>
             <li className='footer__contacts-item'>
               <img className='footer__contacts-item-img' src='img/phone-light.svg' />
-              <span className='footer__contacts-item-lbl'>+ 7 987 654-32-10</span>
+              <span className='footer__contacts-item-lbl'>{info.phone}</span>
             </li>
           </ul>
         </div>
       </div>
       <ul className='footer__social'>
         <li>
-          <a href='#' className='footer__social-item'>
-            <img src='img/facebook.svg' alt='facebook' />
-          </a>
-        </li>
-        <li>
-          <a href='https://www.instagram.com/approvecho_/' target='_blank' rel="noreferrer" className='footer__social-item'>
+          <a href={info.insta} target='_blank' rel="noreferrer" className='footer__social-item'>
             <img src='img/instagram.svg' alt='instagram' />
           </a>
         </li>

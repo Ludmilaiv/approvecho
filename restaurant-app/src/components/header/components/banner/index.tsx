@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.sass';
-
+import {info} from '../../../../data';
 export function Banner() {
   return (
     <div className="banner header__banner">
@@ -13,11 +13,11 @@ export function Banner() {
         <ul className="banner__contacts">
           <li className="banner__contacts-item">
             <img className="banner__contacts-img" src="img/phone.svg" alt="phone" />
-            <span>+ 7 987 654-32-10</span>
+            <span>{info.phone}</span>
           </li>
           <li className="banner__contacts-item">
             <img className="banner__contacts-img" src="img/location.svg" alt="location" />
-            <span>ул. Карла Маркса, 78</span>
+            <span className="banner__contacts-text">{info.address}</span>
           </li>
         </ul>
       </div>

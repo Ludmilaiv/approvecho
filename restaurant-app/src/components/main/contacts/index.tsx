@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.sass';
+import { info } from '../../../data';
 
 export function Contacts() {
   return (
@@ -9,21 +10,21 @@ export function Contacts() {
         <ul className='contacts__list'>
           <li className='contacts__item'>
             <img className='contacts__item-img' src='img/location.svg' />
-            <span className='contacts__item-lbl'>ул. Карла Маркса, 78</span>
+            <span className='contacts__item-lbl'>{info.address}</span>
           </li>
           <li className='contacts__item'>
             <img className='contacts__item-img' src='img/clock-dark.svg' />
             <span className='contacts__item-lbl'>
-              Работаем для вас каждый день <br/>с 10:00 до 19:00
+              Работаем для вас каждый день <br/>{info.workSchedule}
             </span>
           </li>
           <li className='contacts__item'>
             <img className='contacts__item-img' src='img/phone.svg' />
-            <span className='contacts__item-lbl'>+ 7 987 654-32-10</span>
+            <span className='contacts__item-lbl'>{info.phone}</span>
           </li>
           <li className='contacts__item'>
             <img className='contacts__item-img' src='img/letter.svg' />
-            <a href='mailto:info@gmail.com' className='contacts__item-lbl contacts__item-link'>info@gmail.com</a>
+            <a href={`mailto:${info.email}`}className='contacts__item-lbl contacts__item-link'>{info.email}</a>
           </li>
         </ul>
       </div>
