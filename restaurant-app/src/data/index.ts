@@ -3,6 +3,6 @@ export const info = {
   address: 'улица Уральская 100А, г. Краснодар',
   phone: '+7 918 35 34567',
   workSchedule: 'с 9 до 23:00',
-  email: 'info@gmail.com',
+  email: 'approvecho@hotmail.com',
   insta: 'https://www.instagram.com/approvecho_/',
 };
