@@ -55,4 +55,71 @@ export class Methods {
         });
     });
   }
+
+  static author = async (url: string, pass: string, showError: (text: string) => void): Promise<string | null> => {
+    return new Promise(resolve => {
+      fetch(url + '?func=author', {
+        method: 'post', 
+        body: JSON.stringify({pass})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 100) {
+              showError('Неверный пароль');
+            }
+            resolve(null);
+            return;
+          } 
+          const done = await this.authent(url, data.session_id, showError).then();
+          if (done) {
+            resolve(data.session_id);
+          } else {
+            resolve(null);
+          }
+        })
+        .catch(() => {
+          resolve(null);
+        });
+    });
+  };
+
+  static authent = async (url: string, session_id: string, showError?: (text: string) => void): Promise<boolean> => {
+    return new Promise(resolve => {
+      
+      fetch(url + '?func=authent', {
+        method: 'post', 
+        body: JSON.stringify({session_id: session_id})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 102) {
+              localStorage.removeItem('token');
+            } else {
+              !!showError && showError('Ошибка на сервере');
+            }
+            resolve(false);
+          } 
+          if (data.status === 1) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        })
+        .catch(() => {
+          resolve(false);
+        });
+    });     
+  };
+
+  static logout = async (url: string, session_id: string) => {
+    fetch(url + '?func=logout', {
+      method: 'post', 
+      body: JSON.stringify({session_id: session_id})
+    });
+  };
+
 }

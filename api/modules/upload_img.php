@@ -1,5 +1,5 @@
 <?php
-require './modules//compressor.php';
+require './modules/compressor.php';
 if (!isset($_FILES['img'])) {
   echo json_encode(['err' => ['code'=>11, 'description'=>'Incorrect data: img file is not defined']]);
   exit;
