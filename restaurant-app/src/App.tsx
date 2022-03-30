@@ -1,16 +1,17 @@
 import React from 'react';
-import { Header } from './components/header';
-import { Main } from './components/main';
-import { Footer } from './components/footer';
-import { GoHome } from './components/gohome';
+import { MainPage } from './components/pages/main-page';
+import { AdminPanel } from './components/pages/admin-panel';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App () {
   return (
     <div className="App">
-      <Header withBanner={true} />
-      <Main />
-      <Footer />
-      <GoHome />
+      <Router>
+        <Routes>
+          <Route path='/' element={<MainPage/>}/>
+          <Route path='/administrator' element={<AdminPanel/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }

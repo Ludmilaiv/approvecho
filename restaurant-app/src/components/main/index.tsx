@@ -1,5 +1,5 @@
 import React from 'react';
-import { Booking } from './booking';
+import { Booking } from './components/booking';
 import { Contacts } from './contacts';
 import { FoodMenu } from './food-menu';
 
