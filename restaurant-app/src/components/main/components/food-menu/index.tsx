@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import React, {useState, useEffect} from 'react';
 import './style.sass';
-import { Methods } from '../../../methods';
-import { Category, FoodMenuItem } from '../../../types';
-import { Loader } from '../../loader';
+import { Methods } from '../../../../methods';
+import { Category, FoodMenuItem } from '../../../../types';
+import { Loader } from '../../../loader';
 
 // const categories = [
 //   {id: 1, title: 'Салаты'},

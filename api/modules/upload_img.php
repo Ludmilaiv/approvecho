@@ -1,11 +1,17 @@
 <?php
 require './modules/compressor.php';
+require './modules/is_auth.php';
+
+if (!is_auth()) {
+  exit;
+};
+
 if (!isset($_FILES['img'])) {
-  echo json_encode(['err' => ['code'=>11, 'description'=>'Incorrect data: img file is not defined']]);
+  echo json_encode(['err' => ['code'=>15, 'description'=>'Incorrect data: img file is not defined']]);
   exit;
 }
 if (explode('/',$_FILES['img']['type'])[0] !== 'image') {
-  echo json_encode(['err' => ['code'=>12, 'description'=>'Incorrect data: invalid image format '.$_FILES['img']['type']]]);
+  echo json_encode(['err' => ['code'=>16, 'description'=>'Incorrect data: invalid image format '.$_FILES['img']['type']]]);
   exit;
 }
 

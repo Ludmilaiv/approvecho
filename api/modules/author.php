@@ -9,12 +9,7 @@
     exit;
   }
 
-  session_start();
-
-  $_SESSION['auth'] = true;
-
   $current_time = time();
-  $sess_data = json_encode($_SESSION);
 
   $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
   $session_id = substr(str_shuffle($permitted_chars), 0, 15);
@@ -25,7 +20,6 @@
   }  
   $session = R::dispense('sessions');
   $session->session_id = $session_id;
-  $session->sess_data = $sess_data;
   $session->date_touched = $current_time;
   R::store($session);
 

@@ -7,6 +7,7 @@ import { Methods } from '../../../methods';
 export function AdminPanel() {
   const [auth, setAuth] = useState<boolean>(false);
   const [api, setApi] = useState<string>();
+  const [activeTab, setActiveTab] = useState<string>('menu');
 
   const getApi = async() => {
     const api = await Methods.getApi().then();
@@ -42,8 +43,8 @@ export function AdminPanel() {
 
   return (
     <div className="App">
-      <Header logOut={logOut} withMenu={auth}/>
-      <Main blocked={!auth} setAuth={setAuth}/>
+      <Header setActiveTab={setActiveTab} activeTab={activeTab} logOut={logOut} withMenu={auth}/>
+      <Main activeTab={activeTab} blocked={!auth} setAuth={setAuth}/>
       <Footer />
     </div>
   );

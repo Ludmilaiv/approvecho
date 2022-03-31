@@ -1,33 +1,38 @@
 <?php
 $json = file_get_contents('php://input');
 $_POST = json_decode($json, true);
+require './modules/is_auth.php';
+
+if (!is_auth()) {
+  exit;
+};
 
 if (!isset($_POST['cat_id'])) {
-  echo json_encode(['err' => 'Incorrect data: cat_id is not defined']);
+  echo json_encode(['err' => ['code'=>2, 'description'=>'Incorrect data: cat_id is not defined']]);
   exit;
 }
 if (!isset($_POST['title'])) {
-  echo json_encode(['err' => 'Incorrect data: title is not defined']);
+  echo json_encode(['err' => ['code'=>3, 'description'=>'Incorrect data: title is not defined']]);
   exit;
 }
 if (!isset($_POST['massa'])) {
-  echo json_encode(['err' => 'Incorrect data: massa is not defined']);
+  echo json_encode(['err' => ['code'=>4, 'description'=>'Incorrect data: massa is not defined']]);
   exit;
 }
 if (!isset($_POST['unit'])) {
-  echo json_encode(['err' => ['code'=>2, 'description'=>'Incorrect data: unit is not defined']]);
+  echo json_encode(['err' => ['code'=>5, 'description'=>'Incorrect data: unit is not defined']]);
   exit;
 }
 if (!isset($_POST['price'])) {
-  echo json_encode(['err' => ['code'=>3, 'description'=>'Incorrect data: price is not defined']]);
+  echo json_encode(['err' => ['code'=>6, 'description'=>'Incorrect data: price is not defined']]);
   exit;
 }
 if (!isset($_POST['img'])) {
-  echo json_encode(['err' => ['code'=>4, 'description'=>'Incorrect data: img is not defined']]);
+  echo json_encode(['err' => ['code'=>7, 'description'=>'Incorrect data: img is not defined']]);
   exit;
 }
 if (!file_exists('./temporary/'.$_POST['img'])) {
-  echo json_encode(['err' => ['code'=>5, 'description'=>'Incorrect data: img'.$_POST['img'].'does not exist']]);
+  echo json_encode(['err' => ['code'=>8, 'description'=>'Incorrect data: img'.$_POST['img'].'does not exist']]);
   exit;
 }
 

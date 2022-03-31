@@ -1,6 +1,11 @@
 <?php
 $json = file_get_contents('php://input');
 $_POST = json_decode($json, true);
+require './modules/is_auth.php';
+
+if (!is_auth()) {
+  exit;
+};
 
 if (!isset($_POST['title'])) {
   echo json_encode(['err' => ['code'=>1, 'description'=>'Incorrect data: title is not defined']]);

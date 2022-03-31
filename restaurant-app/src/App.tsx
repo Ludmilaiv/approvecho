@@ -4,6 +4,7 @@ import { AdminPanel } from './components/pages/admin-panel';
 import { BrowserRouter as Router, Routes, Route, useSearchParams} from 'react-router-dom';
 
 function Page() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
   const isAdminPage = searchParams.get('administrator') !== null;
   return (

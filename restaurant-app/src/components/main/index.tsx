@@ -1,7 +1,7 @@
 import React from 'react';
 import { Booking } from './components/booking';
-import { Contacts } from './contacts';
-import { FoodMenu } from './food-menu';
+import { Contacts } from './components/contacts';
+import { FoodMenu } from './components/food-menu';
 
 export function Main() {
   return (

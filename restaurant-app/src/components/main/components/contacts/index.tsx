@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.sass';
-import { info } from '../../../data';
+import { info } from '../../../../data';
 
 export function Contacts() {
   return (
