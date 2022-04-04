@@ -17,8 +17,9 @@ export const FileLoader = ({api, error, skipError, img, setImg}: props) => {
     skipError();
     const file = files[0];
     setDragOver(false);
+    setImgUploadError(undefined);
     if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-      setImgUploadError('Недопустимый формат файла. Допустимы изображения форматов jpeg и png');
+      setImgUploadError('Недопустимый формат файла. Допустимы jpeg и png');
       console.warn('Недопустимый формат файла. Допустимы изображения форматов jpeg и png');
       return;
     }
