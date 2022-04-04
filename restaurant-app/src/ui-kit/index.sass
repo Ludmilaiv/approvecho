@@ -1,5 +1,6 @@
 .ui-button
   border: none
+  position: relative
   border-radius: 31px
   padding: 5px 15px 7px
   display: flex
@@ -10,6 +11,21 @@
   text-decoration: none
   &:focus
     outline: 2px solid #053c52
+  
+  &__loading
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #ffffffb7
+    &>img
+      width: 1.5em
+
 
 .ui-button-light
   background: #0A9DD7;

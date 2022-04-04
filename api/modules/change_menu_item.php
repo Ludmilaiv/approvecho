@@ -25,6 +25,9 @@ if (isset($_POST['cat_id'])) {
 if (isset($_POST['title'])) {
   $menu_item->title = $_POST['title'];
 }
+if (isset($_POST['desc'])) {
+  $menu_item->desc = $_POST['desc'];
+}
 if (isset($_POST['massa'])) {
   $menu_item->massa = $_POST['massa'];
 }
@@ -32,14 +35,14 @@ if (isset($_POST['unit'])) {
   $menu_item->unit = $_POST['unit'];
 }
 if (isset($_POST['price'])) {
-  $menu_item->unit = $_POST['unit'];
+  $menu_item->price = $_POST['price'];
 }
-if (!isset($_POST['img'])) {
-  if (!file_exists('./temporary/'.$_POST['img'])) {
-    echo json_encode(['err' => ['code'=>5, 'description'=>'Incorrect data: img'.$_POST['img'].'does not exist']]);
+if (isset($_POST['img'])) {
+  if (!file_exists('./img/menu/'.$_POST['img'])) {
+    echo json_encode(['err' => ['code'=>5, 'description'=>'Incorrect data: img '.$_POST['img'].' does not exist']]);
     exit;
   }
-  $menu_item->unit = $_POST['unit'];
+  $menu_item->img = $_POST['img'];
 }
 
 R::store($menu_item);

@@ -1,6 +1,8 @@
 .modal 
   font-size: 1rem
   padding: 1rem
+  max-height: 90vh
+  overflow: hidden
 
   &__header 
     width: 100%
@@ -12,12 +14,15 @@
   &__content 
     width: 100%
     padding: 10px 5px
+    max-height: 60vh
+    overflow-y: auto
 
   &>.actions 
     width: 100%;
     padding: 10px 5px
     margin: auto;
     text-align: center
+
   &>.close 
     cursor: pointer
     position: absolute
@@ -32,3 +37,34 @@
     background: #ffffff
     border-radius: 50%
     border: 1px solid #cfcece
+
+  &__input
+    display: block
+    width: 100%
+    margin-bottom: 0.5rem
+    max-width: 20rem
+    border: 1px solid #8a8a8a
+    border-radius: 3px
+    padding: 4px
+    &:focus
+      outline: none
+      border-color: #0A9DD7
+    &_err
+      border-color: #f30000
+      background: #fde6e6
+
+  &__input-wrp
+    display: flex
+    column-gap: 3px
+    max-width: 20rem
+
+  &__buttons
+    display: flex
+    justify-content: center
+    column-gap: 10px
+    flex-wrap: wrap
+    margin-top: 1rem 
+
+  &__error
+    color: #f30000
+      

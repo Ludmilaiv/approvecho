@@ -36,8 +36,12 @@ function compressor($filename, $filepath, $size)
 
     if ($filetype == 'png') {
         $im_old = imagecreatefrompng($filepath);
-        imagealphablending($im_new, false);
+        imagealphablending($im_old, true);
+        imagesavealpha($im_old, true);
+        imagealphablending($im_new, true);
         imagesavealpha($im_new, true);
+        $pngTransparency = imagecolorallocatealpha($im_new , 0, 0, 0, 127);
+        imagefill($im_new , 0, 0, $pngTransparency);
         imagecopyresampled($im_new, $im_old, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
         //header('Content-Type: image/png');
         imagepng($im_new, $save);

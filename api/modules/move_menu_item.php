@@ -28,11 +28,11 @@ if (!isset($menu_item_2->title)) {
   exit;
 }
 
-$order_1 = $menu_item_1->order;
-$order_2 = $menu_item_2->order;
+$order_1 = $menu_item_1->order_index;
+$order_2 = $menu_item_2->order_index;
 
-$menu_item_1->order = $order_2;
-$menu_item_2->order = $order_1;
+$menu_item_1->order_index = $order_2;
+$menu_item_2->order_index = $order_1;
 
 R::store($menu_item_1);
 R::store($menu_item_2);

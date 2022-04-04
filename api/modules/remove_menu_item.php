@@ -14,7 +14,7 @@ if (!isset($_POST['id'])) {
 
 $menu_item = R::load( 'menu', $_POST['id']);
 
-if (!isset($menu_item)) {
+if (!isset($menu_item->title)) {
   echo json_encode(['err' => ['code' => 14, 'description' => 'Position with id '.$_POST['id'].' is not defined']]);
   exit;
 }

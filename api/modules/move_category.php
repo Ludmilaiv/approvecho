@@ -28,11 +28,11 @@ if (!isset($category_2->title)) {
   exit;
 }
 
-$order_1 = $category_1->order;
-$order_2 = $category_2->order;
+$order_1 = $category_1->order_index;
+$order_2 = $category_2->order_index;
 
-$category_1->order = $order_2;
-$category_2->order = $order_1;
+$category_1->order_index = $order_2;
+$category_2->order_index = $order_1;
 
 R::store($category_1);
 R::store($category_2);

@@ -12,7 +12,13 @@ export function Header({withMenu = false, activeTab, setActiveTab, logOut}: prop
         <a href='#' className={classNames('header__menu-item', activeTab === 'menu' && 'header__menu-item_active')} onClick={e => {
           e.preventDefault();
           setActiveTab('menu');
-        }}>Редактировать меню</a>
+        }}>Меню</a>
+      </li>
+      <li>
+        <a href='#' className={classNames('header__menu-item', activeTab === 'orders' && 'header__menu-item_active')} onClick={e => {
+          e.preventDefault();
+          setActiveTab('orders');
+        }}>Столы</a>
       </li>
       <li>
         <a href='#' className={classNames('header__menu-item', activeTab === 'orders' && 'header__menu-item_active')} onClick={e => {

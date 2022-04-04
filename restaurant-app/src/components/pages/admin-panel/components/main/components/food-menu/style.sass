@@ -40,17 +40,30 @@
     font-size: 1.51em
 
   &__categories-item
+    padding-left: 1em
     min-height: 2.5rem
+    position: relative
     display: flex;
     align-items: center
     margin-bottom: 1rem
     cursor: pointer
     transition: color 0.4s
+    &-move-btns
+      position: absolute
+      top: -0.5em
+      left: -0.3em
+      display: none
+      flex-direction: column
+      &_first
+        top: 0.1em
+      &_last
+        top: 0.1em
+
     &-btns
       display: none
       margin-left: 5px 
       justify-content: center
-      align-items: flex-start
+      align-items: center
       line-height: 1.5rem
     &-btn
       margin: 5px
@@ -68,6 +81,9 @@
       color: #0e5ab1
       .admin-food-menu__categories-item-btns
         display: flex
+      .admin-food-menu__categories-item-move-btns
+        display: flex
+
     &_active
       display: flex
       align-items: center
@@ -107,8 +123,13 @@
       left: 0
       right: 0
       bottom: 0
-      justify-content: center
-      align-items: flex-start
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      &-wrp
+        display: flex
+        align-items: center
+        justify-content: center
     &-btn
       margin: 5px
       padding: 0

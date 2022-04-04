@@ -5,14 +5,17 @@ import './style.sass';
 
 type props = {trigger: JSX.Element, content?: JSX.Element}
 
-export const Modal = ({trigger, content=<span></span>} : props) => (
-  <Popup trigger={trigger} modal>
-    {(close: React.MouseEventHandler<HTMLButtonElement> | undefined) => (
-      <div className='modal'>
-        <button className="close" onClick={close}>
-      &times;
-        </button>
-        {content}
-      </div>)}
-  </Popup>
-);
+export const Modal = ({trigger, content=<span></span>} : props) => {
+  return (
+    <Popup trigger={trigger} modal>
+      {(close: () => void ) => {
+        return (
+          <div className='modal'>
+            <button className="close" onClick={close}>
+              &times;
+            </button>
+            {content}
+          </div>);
+      }}
+    </Popup>);
+};

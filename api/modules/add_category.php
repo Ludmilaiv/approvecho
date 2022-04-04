@@ -14,15 +14,15 @@ if (!isset($_POST['title'])) {
 
 $order = 0;
 
-$categories = R::findAll('categories', 'ORDER BY "order"');
+$categories = R::findAll('categories', 'ORDER BY order_index');
 if (isset($categories)) {
   $categories = array_values($categories);
-  $order = end($categories)->order + 1;
+  $order = end($categories)->order_index + 1;
 }
 
 $category = R::dispense('categories');
 $category->title = $_POST['title'];
-$category->order = $order;
+$category->order_index = $order;
 R::store($category);
 
 echo json_encode($category);
