@@ -43,8 +43,8 @@ if (!file_exists('./img/menu/'.$_POST['img'])) {
 $order = 0;
 
 $menu = R::findAll('menu', 'ORDER BY order_index');
-if (isset($menu)) {
-  $menu = array_values($menu);
+$menu = array_values($menu);
+if (isset($menu[0])) {
   $order = end($menu)->order_index + 1;
 }
 

@@ -15,9 +15,9 @@ export function Header({withMenu = false, activeTab, setActiveTab, logOut}: prop
         }}>Меню</a>
       </li>
       <li>
-        <a href='#' className={classNames('header__menu-item', activeTab === 'orders' && 'header__menu-item_active')} onClick={e => {
+        <a href='#' className={classNames('header__menu-item', activeTab === 'tables' && 'header__menu-item_active')} onClick={e => {
           e.preventDefault();
-          setActiveTab('orders');
+          setActiveTab('tables');
         }}>Столы</a>
       </li>
       <li>

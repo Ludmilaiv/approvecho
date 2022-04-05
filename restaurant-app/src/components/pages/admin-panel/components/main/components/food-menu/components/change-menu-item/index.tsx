@@ -2,7 +2,7 @@ import React, { Dispatch, useState } from 'react';
 import classNames from 'classnames';
 import { Category, FoodMenuItem, Unit } from '../../../../../../../../../types';
 import { Methods } from '../../../../../../../../../methods';
-import { FileLoader } from '../file-loader';
+import { FileLoader } from '../../../file-loader';
 
 type props = {
   api: string | undefined; 

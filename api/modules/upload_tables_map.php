@@ -18,9 +18,9 @@ if (explode('/',$_FILES['img']['type'])[0] !== 'image') {
 $upload_dir = './temporary/';
 $tmp = explode('.',basename($_FILES['img']['name']));
 $file_extension = end($tmp);
-$file_name = 'img-'.random_int(10000,99999).'.'.$file_extension;
-while (file_exists('./img/menu/'.$file_name)) {
-  $file_name = 'img-'.random_int(10000,99999).'.'.$file_extension;
+$file_name = 'table-map-'.random_int(10000,99999).'.'.$file_extension;
+while (file_exists('./img/table-maps/'.$file_name)) {
+  $file_name = 'table-map-'.random_int(10000,99999).'.'.$file_extension;
 }
 $file_path = $upload_dir.$file_name;
 
@@ -31,8 +31,13 @@ if (!$file_move) {
   exit;
 }
 
-compressor($file_name, $file_path, './img/menu/', 500);
+compressor($file_name, $file_path, './img/table-maps/', 700);
 
 unlink($file_path);
+
+$map = R::load('table_map', 1);
+$map->id = 1;
+$map->img = $file_name;
+R::store($map);
 
 echo json_encode(['fileName' => $file_name]);

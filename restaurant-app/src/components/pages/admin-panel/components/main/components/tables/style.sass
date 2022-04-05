@@ -1,0 +1,115 @@
+@import '../../../../../../../variables'
+@import '../../../../../../../mixins'
+
+.admin-tables
+  &__wrp
+    display: flex
+    padding-top: 35px
+    padding-bottom: 70px
+    +_480
+      flex-direction: column
+
+  &__list
+    list-style-type: none;
+    font-size: 1.51em
+
+  &__list-wrp
+    width: 15.56rem
+    flex-shrink: 0
+    +_480
+      width: 13rem
+
+  &__title
+    display: flex
+    align-items: center
+    color: $title-color
+    font-size: 2.18rem
+    margin-bottom: 1rem
+
+  &__places
+    color: #7a7a7a
+
+  &__add-btn
+    margin: 5px
+    padding: 0
+    border: none
+    font-size: 3rem
+    width: 3rem
+    height: 3rem
+    background: transparent
+    color: #ff0000
+    cursor: pointer
+    &:hover
+      color: #bb3030
+
+  &__item
+    padding-left: 1em
+    min-height: 2.5rem
+    position: relative
+    display: flex;
+    align-items: center
+    margin-bottom: 1rem
+    cursor: pointer
+    transition: color 0.4s
+    &-move-btns
+      position: absolute
+      top: -0.5em
+      left: -0.3em
+      display: none
+      flex-direction: column
+      &_first
+        top: 0.1em
+      &_last
+        top: 0.1em
+
+    &-btns
+      display: none
+      margin-left: 5px 
+      justify-content: center
+      align-items: center
+      line-height: 1.5rem
+    &-btn
+      margin: 5px
+      padding: 0
+      border: none
+      font-size: 1.5rem
+      width: 1.5rem
+      height: 1.5rem
+      background: transparent
+      color: #ff0000
+      cursor: pointer
+      &:hover
+        color: #bb3030
+    &:hover
+      color: #0e5ab1
+      .admin-tables__item-btns
+        display: flex
+      .admin-tables__item-move-btns
+        display: flex
+
+  &__map-wrp
+    flex-grow: 1
+    .file-loader
+      &__dropzone
+        max-width: 40rem
+        height: fit-content
+        min-height: 20rem
+      &__img-container
+        width: 100%
+        height: auto
+      &__img
+        height: auto
+        object-fit: contain
+
+
+  &__map-title
+    font-size: 2.18rem
+    margin-bottom: 1rem
+    display: flex
+    align-items: center
+    height: 3rem
+    margin: 5px
+    +_768
+      text-align: center
+
+  

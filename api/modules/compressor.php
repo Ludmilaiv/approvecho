@@ -1,5 +1,5 @@
 <?php
-function compressor($filename, $filepath, $size)
+function compressor($filename, $filepath, $save_dir, $size)
 {
     //определяем тип изображения
     $explode = explode(".", $filename);
@@ -32,7 +32,7 @@ function compressor($filename, $filepath, $size)
     $path = explode('/', $filename);
     $name = array_pop($path);
 
-    $save = './img/menu/'.$name;
+    $save = $save_dir.$name;
 
     if ($filetype == 'png') {
         $im_old = imagecreatefrompng($filepath);

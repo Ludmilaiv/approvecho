@@ -1,5 +1,5 @@
 import {data} from './data';
-import {Category, FoodMenuItem, Unit} from '../types';
+import {Category, FoodMenuItem, Unit, Table} from '../types';
 
 export class Methods {
 
@@ -404,4 +404,191 @@ export class Methods {
         });
     });
   };
+
+  static async getTables(api: string): Promise<Table[]> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      return new Promise(resolve => resolve([]));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=get_tables')
+        .then(async (response) => {
+          const data = await response.json();
+          resolve(data);
+        })
+        .catch(() => {
+          resolve([]);
+        });
+    });
+  }
+
+  static async getTablesMap(api: string): Promise<string | undefined> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      return new Promise(resolve => resolve(undefined));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=get_tables_map')
+        .then(async (response) => {
+          const data = await response.json();
+          resolve(data.fileName);
+        })
+        .catch(() => {
+          resolve(undefined);
+        });
+    });
+  }
+
+  static removeTable = async (url: string, id: number, showError?: (text: string) => void ): Promise<Category | null> => {
+    return new Promise(resolve => {
+    
+      fetch(url + '?func=remove_table', {
+        method: 'post', 
+        body: JSON.stringify({id})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 102) {
+              // Если токен просрочен, то делаем логаут
+              const token = localStorage.getItem('token');
+              token && Methods.logout(url, token);
+              localStorage.removeItem('token');
+            } 
+            if (data.err.code === 11) {
+              showError && showError('Невозможно удалить эту категорию, так как в ней есть блюда. Нажмите "Отменить".');
+            }
+            resolve(null);
+          } else {
+            resolve(data);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          resolve(null);
+        });
+    });
+  };
+
+  static changeTable = async (url: string, id: number, title: string, places: number): Promise<Table | null> => {
+    return new Promise(resolve => {
+    
+      fetch(url + '?func=change_table', {
+        method: 'post', 
+        body: JSON.stringify({title, places, id})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 102) {
+              // Если токен просрочен, то делаем логаут
+              const token = localStorage.getItem('token');
+              token && Methods.logout(url, token);
+              localStorage.removeItem('token');
+            } 
+            resolve(null);
+          } else {
+            resolve(data);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          resolve(null);
+        });
+    });
+  };
+
+  static addTable = async (url: string, title: string, places: number): Promise<Table | null> => {
+    return new Promise(resolve => {
+    
+      fetch(url + '?func=add_table', {
+        method: 'post', 
+        body: JSON.stringify({title, places})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 102) {
+              // Если токен просрочен, то делаем логаут
+              const token = localStorage.getItem('token');
+              token && Methods.logout(url, token);
+              localStorage.removeItem('token');
+            } 
+            resolve(null);
+          } else {
+            resolve(data);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          resolve(null);
+        });
+    });
+  };
+
+  static uploadTablesMap = async (url: string, file: File, showError: (text: string) => void): Promise<string | null> => {
+    return new Promise(resolve => {
+      const body = new FormData();
+      body.append('img', file);
+    
+      fetch(url + '?func=upload_tables_map', {method: 'post', body})
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 102) {
+              // Если токен просрочен, то делаем логаут
+              const token = localStorage.getItem('token');
+              token && Methods.logout(url, token);
+              localStorage.removeItem('token');
+            } 
+            if (data.err.code == 3 || data.err.code == 4) {
+              showError('Недопустимый формат файла. Недопустимый формат файла. Допустимы изображения форматов jpeg и png');
+            }
+            resolve(null);
+          } else if (data.fileName) {
+            resolve(data.fileName);
+          } else {
+            resolve(null);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          resolve(null);
+        });
+    });
+  };
+  
+  static moveTable = async (url: string, id_1: number, id_2: number): Promise<Category[] | null> => {
+    return new Promise(resolve => {
+    
+      fetch(url + '?func=move_table', {
+        method: 'post', 
+        body: JSON.stringify({id_1, id_2})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.warn(data.err);
+            if (data.err.code === 102) {
+              // Если токен просрочен, то делаем логаут
+              const token = localStorage.getItem('token');
+              token && Methods.logout(url, token);
+              localStorage.removeItem('token');
+            } 
+            resolve(null);
+          } else {
+            resolve(data);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          resolve(null);
+        });
+    });
+  };
+
 }

@@ -15,8 +15,8 @@ if (!isset($_POST['title'])) {
 $order = 0;
 
 $categories = R::findAll('categories', 'ORDER BY order_index');
-if (isset($categories)) {
-  $categories = array_values($categories);
+$categories = array_values($categories);
+if (isset($categories[0])) {
   $order = end($categories)->order_index + 1;
 }
 
