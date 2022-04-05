@@ -52,25 +52,27 @@ export const AddMenuItem = ({api, categories, categoryId, menu, setMenu}: props)
 
   const form = <form action='#' onSubmit={e => {
     e.preventDefault();
-    if (!title || !description || !massa || !price || !img) {
+    if (!title || title === '' || !description || description === '' || !massa || massa === '' || !price || price === '' || !img) {
       setError('Необходимо заполнить все поля');
-      if (!title) {
+      if (!title || title === '') {
         setErrorTitle('Введите наименование');
       }
-      if (!description) {
+      if (!description || description === '') {
         setErrorDesc('Введите описание');
       }
-      if (!massa) {
+      if (!massa || massa === '') {
         setErrorMassa('Введите объём, вес, либо количество');
       }
-      if (!price) {
+      if (!price || price === '') {
         setErrorPrice('Введите цену');
       }
       if (!img) {
         setErrorImg('Загрузите изображение');
       }
-    } 
-    addMenuItem();
+    } else {
+      addMenuItem();
+    }
+    
   }}>
 
     <label htmlFor='title'>Категория</label>

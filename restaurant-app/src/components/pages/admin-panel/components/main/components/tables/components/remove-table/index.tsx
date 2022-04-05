@@ -50,7 +50,7 @@ export const RemoveTable = ({api, table, tables, setTables, setRemoved}: props) 
   </form>;
 
   const doneContent = <div>
-    <p>{`Категория "${table.title}" успешно удалена.`}</p>
+    <p>{`Стол "${table.title}" успешно удалён.`}</p>
     <div className='modal__buttons'>
       <button type='button' className='ui-button ui-button-contrast' onClick={() => {
         closeModal();

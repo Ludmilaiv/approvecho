@@ -41,8 +41,9 @@ export const AddCategory = ({api, categories, setCategories}: props) => {
     e.preventDefault();
     if (!title || title === '') {
       setErrorTitle('Заполните название категории');
+    } else {
+      addCategory();
     }
-    addCategory();
   }}>
     <label htmlFor='title'>Название категории</label>
     <input value={title} className={classNames('modal__input', errorTitle && 'modal__input_err')}  type='text' name='title' id='title' placeholder='Введите название новой категории' onInput={e => {

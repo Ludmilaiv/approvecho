@@ -41,10 +41,20 @@ export const AddTable = ({api, tables, setTables}: props) => {
 
   const form = <form action='#' onSubmit={e => {
     e.preventDefault();
-    if (!title || title === '') {
-      setErrorTitle('Заполните название категории');
+    if (!title || title === '' || !places || places === '') {
+      setError('Необходимо заполнить все поля');
+      if (!title || title === '') {
+      
+        setErrorTitle('Заполните название стола');
+      }
+      if (!places || places === '') {
+        setError('Необходимо заполнить все поля');
+        setErrorPlaces('Заполните количество мест');
+      }
+    } else {
+      addTable();
     }
-    addTable();
+    
   }}>
     <label htmlFor='title'>Название стола</label>
     <input value={title} className={classNames('modal__input', errorTitle && 'modal__input_err')}  type='text' name='title' id='title' placeholder='Например, "Столик №3"' onInput={e => {

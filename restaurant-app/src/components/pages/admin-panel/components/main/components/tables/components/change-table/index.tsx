@@ -47,13 +47,19 @@ export const ChangeTable = ({api, table, tables, setTables}: props) => {
 
   const form = <form action='#' onSubmit={e => {
     e.preventDefault();
-    if (!title || title === '') {
-      setErrorTitle('Заполните название стола');
+    if (!title || title === '' || !places || places === '') {
+      setError('Необходимо заполнить все поля');
+      if (!title || title === '') {
+      
+        setErrorTitle('Заполните название стола');
+      }
+      if (!places || places === '') {
+        setError('Необходимо заполнить все поля');
+        setErrorPlaces('Заполните количество мест');
+      }
+    } else {
+      changeTable();
     }
-    if (!places || places === '') {
-      setErrorTitle('Заполните количество мест');
-    }
-    changeTable();
   }}>
     <label htmlFor='title'>Название стола</label>
     <input value={title} className={classNames('modal__input', errorTitle && 'modal__input_err')}  type='text' name='title' id='title' placeholder='Например, "Столик №3"' onInput={e => {
