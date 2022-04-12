@@ -1,5 +1,5 @@
 import {data} from './data';
-import {Category, FoodMenuItem, Unit, Table} from '../types';
+import {Category, FoodMenuItem, Unit, Table, Book} from '../types';
 
 export class Methods {
 
@@ -422,6 +422,93 @@ export class Methods {
     });
   }
 
+  static async getEmptyTables(api: string, datetime: number, duration: number): Promise<Table[]> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      return new Promise(resolve => resolve([]));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=get_empty_tables', {
+        method: 'post', 
+        body: JSON.stringify({datetime, duration})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          resolve(data);
+        })
+        .catch(() => {
+          resolve([]);
+        });
+    });
+  }
+
+  static async booking(
+    api: string, first_name: string, last_name: string, phone: string, datetime: number, 
+    duration: number, table_id: number, showError?: (text: string) => void
+  ): Promise<Book | null> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      showError && showError('Ошибка на сервере');
+      return new Promise(resolve => resolve(null));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=booking', {
+        method: 'post', 
+        body: JSON.stringify({
+          first_name, 
+          last_name,
+          phone,
+          datetime,
+          duration,
+          table_id
+        })
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.log(data.err);
+            showError && showError('Ошибка на сервере');
+            resolve(null);
+          }
+          resolve(data);
+        })
+        .catch(() => {
+          showError && showError('Ошибка на сервере');
+          resolve(null);
+        });
+    });
+  }
+
+  static async confirmBooking(api: string, id: number, code: string, showError?: (text: string) => void): Promise<boolean> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      showError && showError('Ошибка на сервере');
+      return new Promise(resolve => resolve(false));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=confirm_booking', {
+        method: 'post', 
+        body: JSON.stringify({id, code})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            if (data.err.code === 11) {
+              showError && showError('Введён неверный код подтверждения');
+            } else {
+              showError && showError('Ошибка на сервере');
+            }
+            resolve(false);
+          }
+          resolve(true);
+        })
+        .catch(() => {
+          showError && showError('Ошибка на сервере');
+          resolve(false);
+        });
+    });
+  }
+
   static async getTablesMap(api: string): Promise<string | undefined> {
     if (!await this.isApiUrlAvailable(api).then()) {
       console.error('Server is not available!');
@@ -438,6 +525,8 @@ export class Methods {
         });
     });
   }
+
+  
 
   static removeTable = async (url: string, id: number, showError?: (text: string) => void ): Promise<Category | null> => {
     return new Promise(resolve => {
@@ -562,7 +651,7 @@ export class Methods {
     });
   };
   
-  static moveTable = async (url: string, id_1: number, id_2: number): Promise<Category[] | null> => {
+  static moveTable = async (url: string, id_1: number, id_2: number): Promise<Table[] | null> => {
     return new Promise(resolve => {
     
       fetch(url + '?func=move_table', {
@@ -591,4 +680,88 @@ export class Methods {
     });
   };
 
+  static async getBooking(api: string, start_date?: number, end_date?: number): Promise<Book[]> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      return new Promise(resolve => resolve([]));
+    }
+    return new Promise(resolve => {
+      let body = {};
+      if (start_date && end_date) {
+        body = {start_date, end_date};
+      }
+      fetch(api + '?func=get_booking', {
+        method: 'post', 
+        body: JSON.stringify(body)
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.error(data.err);
+            resolve([]);
+          }
+          resolve(data);
+        })
+        .catch(() => {
+          resolve([]);
+        });
+    });
+  }
+
+  static async removeBook(api: string, id: number): Promise<Book | null> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      return new Promise(resolve => resolve(null));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=remove_book', {
+        method: 'post', 
+        body: JSON.stringify({id})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.error(data.err);
+            resolve(null);
+          }
+          resolve(data);
+        })
+        .catch(() => {
+          resolve(null);
+        });
+    });
+  }
+
+  static async recoveryBook(api: string, id: number): Promise<Book | null> {
+    if (!await this.isApiUrlAvailable(api).then()) {
+      console.error('Server is not available!');
+      return new Promise(resolve => resolve(null));
+    }
+    return new Promise(resolve => {
+      fetch(api + '?func=recovery_book', {
+        method: 'post', 
+        body: JSON.stringify({id})
+      })
+        .then(async (response) => {
+          const data = await response.json();
+          if (data.err) {
+            console.error(data.err);
+            resolve(null);
+          }
+          resolve(data);
+        })
+        .catch(() => {
+          resolve(null);
+        });
+    });
+  }
+
+  // Получение даты и времени в определённом часовом поясе
+  static getDate(timeZone: number) {
+    const clientDate = new Date();
+    const clientTimeZone = clientDate.getTimezoneOffset() * 60 * 1000;
+    const localTimeZone = -timeZone * 60 * 60 * 1000;
+    const newDate = new Date(clientDate.getTime() + clientTimeZone - localTimeZone);
+    return newDate;
+  }
 }

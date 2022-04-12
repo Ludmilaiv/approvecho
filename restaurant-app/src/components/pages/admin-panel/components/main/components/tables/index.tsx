@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Methods } from '../../../../../../../methods';
 import { Table } from '../../../../../../../types';
 import { Loader } from '../../../../../../loader';
-import { Modal } from '../modal';
+import { Modal } from '../../../../../../modal';
 import { AddTable } from './components/add-table';
 import { RemoveTable } from './components/remove-table';
 import { ChangeTable } from './components/change-table';

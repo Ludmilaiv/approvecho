@@ -4,7 +4,7 @@ import './style.sass';
 import { Methods } from '../../../../../../../methods';
 import { Category, FoodMenuItem } from '../../../../../../../types';
 import { Loader } from '../../../../../../loader';
-import { Modal } from '../modal';
+import { Modal } from '../../../../../../modal';
 import { AddCategory } from './components/add-category';
 import { ChangeCategory } from './components/change-category';
 import { RemoveCategory } from './components/remove-category';

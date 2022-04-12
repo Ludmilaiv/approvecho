@@ -1,0 +1,70 @@
+@import '../../../../../../../mixins'
+  
+.orders
+  &__list
+    list-style-type: none
+    display: flex
+    flex-wrap: wrap
+    column-gap: 2rem
+
+  &__item
+    width: 100%
+    max-width: 17rem
+    border: 1px solid #dddddd
+    border-bottom: 3px solid #000;
+    padding: 20px
+    margin-bottom: 1rem 
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &_removed
+      display: none
+
+  &__item-header
+    display: block
+    width: 100%
+    text-align: right
+
+  &__item-row
+    margin: 0.8rem 0
+
+  &__item-name
+    font-size: 1.2rem
+
+  &__buttons
+    display: flex
+    column-gap: 5px
+    justify-content: center
+
+  &__span
+    &_danger
+      color: #ff0000
+    &_good
+      color: #00990d
+
+  &__item-footer
+    margin-top: 30px
+
+  &__form-wrp
+    margin-bottom: 20px
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    +_768
+      flex-direction: column
+      align-items: flex-start
+
+  &__input
+    margin-right: 20px
+    
+  &__label
+    display: flex
+    align-items: center
+    +_768
+      margin-bottom: 5px
+    span
+      display: block
+      margin-right: 10px
+      +_768
+        width: 5rem
+    

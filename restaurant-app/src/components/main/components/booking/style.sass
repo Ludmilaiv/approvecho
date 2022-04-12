@@ -47,6 +47,9 @@
     &::placeholder
       color: $base-color
       opacity: 0.2
+    &_err
+      border-color: #ee0000
+      outline-color: #ee0000
 
   &__form-label
     position: relative
@@ -79,6 +82,19 @@
       top: 0
       right: 0
 
+  &__form-input_duration
+    margin-right: 1em 
+    &+.booking__form-label
+      &::after
+        content: "ч."
+        width: 1em
+        height: 1em
+        text-align: right
+        position: absolute
+        z-index: 1
+        top: 0
+        right: 0
+
   &__btn
     margin: 2.84rem auto 0 auto
     font-size: 1.35em
@@ -86,4 +102,9 @@
   &__btn-img
     margin-left: 7px
     width: 2.5em
+  
+  &__error
+    text-align: center
+    color: #ee0000
+  
 
