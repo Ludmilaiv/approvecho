@@ -140,6 +140,7 @@ export function Orders() {
             <div className='orders__item-header'>{!book.removed || +book.removed === 0 ? !book.confirmed || +book.confirmed === 0 ? <span className='orders__span orders__span_danger'>Не подтверждён</span> : <span className='orders__span orders__span_good'>Подтверждён</span> : <span className='orders__span orders__span_danger'>Отменён</span>}</div>
             <div className='orders__item-row orders__item-name'>{book.first_name} {book.last_name}</div>
             <div className='orders__item-row'>{dateFormat(+book.datetime)}</div>
+            <div className='orders__item-row'>Длительность: {Math.floor(book.duration / 1000 / 60 / 60)} ч.</div>
             <div className='orders__item-row'>{tables?.find(table => +table.id === +book.table_id)?.title}</div>
             <div className='orders__row'>{book.phone}</div>
           </div>

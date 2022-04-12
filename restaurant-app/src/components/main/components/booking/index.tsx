@@ -85,19 +85,22 @@ export function Booking({ classMod = 'medium' } : Props) {
               required/>
             </div>
             <div className="booking__form-column">
-              <input value={date} className={classNames('booking__form-input', 'booking__form-input_date', dateErr && 'booking__form-input_err')} id="date" type="text" placeholder="Дата" onFocus={(e) => {e.target.setAttribute('type', 'date');}} onChange={e => {
+              <input value={date} className={classNames('booking__form-input', 'booking__form-input_date', dateErr && 'booking__form-input_err')} id="date" type="text" placeholder="Дата" onFocus={(e) => {e.target.setAttribute('type', 'date');}} onInput={e => {
                 if (dateErr) setDateErr(false);
                 const val = (e.target as HTMLInputElement).value;
                 const dateThis = new Date(val);
                 const dateNow = Methods.getDate(3);
-                if (dateThis.getDate() < dateNow.getDate()) {
+                if (dateThis.getTime() < dateNow.getTime() && 
+                (dateThis.getFullYear() !== dateNow.getFullYear() || 
+                dateThis.getMonth() !== dateNow.getMonth() || 
+                dateThis.getDate() !== dateNow.getDate())) {
                   setDateErr(true);
                   setErr('Укажите корректную дату');
                 }
                 setDate(val);
               }} required/>
               <label htmlFor="date" className="booking__form-label"></label>
-              <input value={time} className={classNames('booking__form-input', 'booking__form-input_time', timeErr && 'booking__form-input_err')} type="text" id="time" placeholder="Время" onFocus={(e) => {e.target.setAttribute('type', 'time');}} onChange={e => {
+              <input value={time} className={classNames('booking__form-input', 'booking__form-input_time', timeErr && 'booking__form-input_err')} type="text" id="time" placeholder="Время" onFocus={(e) => {e.target.setAttribute('type', 'time');}} onInput={e => {
                 if (timeErr) setTimeErr(false);
                 const val = (e.target as HTMLInputElement).value;
                 const timeSplit = val.split(':').map(el => +el);
